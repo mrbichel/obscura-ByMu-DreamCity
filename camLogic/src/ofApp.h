@@ -43,4 +43,9 @@ class ofApp : public ofBaseApp{
     
     ofVideoPlayer videoPlayback;
     
+    ofxVideoSaver videoSaver;
+    
+    int long introductionTime = 1000;
+    int long introductionStart = 0;
+    
 };

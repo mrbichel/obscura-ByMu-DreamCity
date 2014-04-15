@@ -19,7 +19,12 @@ void ofApp::draw(){
     
     
     if(STATE_RECORDING) {
-        videoIn.
+        if(videoIn.isFrameNew()) {
+            videoSaver.addFrame(&videoIn);
+        }
+    } else if(STATE_REVIEWING) {
+        
+        
     }
 
 }
