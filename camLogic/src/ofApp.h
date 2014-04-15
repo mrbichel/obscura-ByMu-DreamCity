@@ -1,6 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxSyphon.h"
+#include "ofxVideoSaver.h"
+
+enum {STATE_RECORDING, STATE_WAITING_FOR_NEW_USER, STATE_INTRODUCTION, STATE_REVIEWING, STATE_WAITING_FOR_USER_FEEDBACK};
 
 class ofApp : public ofBaseApp{
 
@@ -18,5 +22,25 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+    
+    
+    void acceptVideo();
+    void rejectVideo();
+    
+    void newUser();
+    
+    ofSerial arduino;
+    
+    int state;
+    
+    ofVideoGrabber videoIn;
+    
+    ofxSyphonServer syphonOut;
+    
+    int recordLength;
+    
+    bool recording;
+    
+    ofVideoPlayer videoPlayback;
+    
 };
